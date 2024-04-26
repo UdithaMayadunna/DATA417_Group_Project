@@ -11,3 +11,10 @@ information on these culturally specific terms.
 
 tweat data is collected from kaggle
 https://www.kaggle.com/datasets/gargmanas/sentimental-analysis-for-tweets?resource=download
+
+
+# To run
+if there is any required dependancy missing, please feel free to add them into the requirements.txt  
+
+pip install -r requirements.txt  
+streamlit run app.py

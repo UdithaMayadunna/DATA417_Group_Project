@@ -16,6 +16,9 @@ def preprocess(text):
         t = 'http' if t.startswith('http') else t
         new_text.append(t)
     return " ".join(new_text)
+
+# here is the Twitter-roBERTa-base for Sentiment Analysis - UPDATED (2022)
+# https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest
 MODEL = f"cardiffnlp/twitter-roberta-base-sentiment-latest"
 tokenizer = AutoTokenizer.from_pretrained(MODEL)
 config = AutoConfig.from_pretrained(MODEL)
@@ -67,7 +70,6 @@ def Introduction():
 def click_button():
     st.write("Link clicked!")
 
-
 def Moderation():
     message = read_one_tweet()
     st.title("Moderation")
@@ -92,27 +94,6 @@ def Moderation():
             if slang in message.lower():
                 found_slangs.append(slang)
             
-        
-  
-    # with col2:
-    #     st.subheader("Information")
-    #     st.write("Found NZ slangs:", found_slangs)
-    #     text = preprocess(message)
-    #     encoded_input = tokenizer(text, return_tensors='pt')
-    #     output = model(**encoded_input)
-    #     scores = output[0][0].detach().numpy()
-    #     scores = softmax(scores)
-    #     ranking = np.argsort(scores)
-    #     ranking = ranking[::-1]
-    #     st.write("Sentiment:", config.id2label[ranking[0]])
-    #     for i in range(scores.shape[0]):
-    #         l = config.id2label[ranking[i]]
-    #         s = scores[ranking[i]]
-    #         st.write(f"{i+1}) {l} {np.round(float(s), 4)}")
-        
-
-        # ...
-
     with col2:
         st.subheader("Information")
         st.write("Found NZ slangs:", found_slangs)
@@ -141,7 +122,6 @@ def Moderation():
         plt.ylabel('Probability')
         plt.title('Sentiment Analysis')
         st.pyplot(plt)
-        # st.slider("Positive", min_value=0.1, max_value=1.0,step=0.0001, value=0.5, key="positive", on_change=lambda x: x*2)
 
 
 def Content():

@@ -1,0 +1,10 @@
+
+streamlit
+st-annotated-text
+transformers
+torch 
+torchvision 
+torchaudio
+scipy
+numpy
+pandas
