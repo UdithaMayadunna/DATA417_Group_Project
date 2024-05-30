@@ -112,7 +112,7 @@ def Moderation():
         col3, col4, col5, col6 = col1.columns([1, 1, 1, 1])
         col3.button("Prev", key="btn_prev", on_click=lambda: st.session_state.__setitem__(content_index_key, st.session_state[content_index_key] - 1))
         col4.button("Next", key="btn_next", on_click=lambda: st.session_state.__setitem__(content_index_key, st.session_state[content_index_key] + 1))
-        col5.markdown('<span id="button-after"></span>', unsafe_allow_html=True)
+        col5.markdown('<span id="button-after"></span>', unsafe_allow_html=True) # use button-after css to change the color of button
         col5.button("Pass", key="btn_pass")
         col6.button("Block", key="btn_block")
         st.markdown(highlighted_text, unsafe_allow_html=True)
